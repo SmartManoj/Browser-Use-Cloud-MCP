@@ -24,7 +24,7 @@ mcp = FastMCP.from_openapi(
 )
 
 if __name__ == "__main__":
-    if os.getenv('PREFER_SHTTP') or 1:
+    if os.getenv('PREFER_SHTTP'):
         mcp.run("streamable-http")
     else:
         mcp.run()
