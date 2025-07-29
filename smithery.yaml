@@ -5,10 +5,18 @@ startCommand:
   commandFunction:
     # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
     |-
-    (config) => ({ command: "python", args: ["server.py"], env: {BROWSER_USE_API_KEY: config.browserUseApiKey} })
+    (config) => ({ 
+      command: "python",
+      args: ["server.py"],
+      env: {
+        BROWSER_USE_API_KEY: config.browserUseApiKey
+      }
+    })
   configSchema:
     # JSON Schema defining the configuration options for the MCP.
     type: object
+    required:
+      - browserUseApiKey
     properties:
       - browserUseApiKey:
           type: string
